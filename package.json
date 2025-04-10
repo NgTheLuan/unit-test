@@ -1,0 +1,28 @@
+{
+  "name": "unit-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NgTheLuan/unit-test.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Luan Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NgTheLuan/unit-test/issues"
+  },
+  "homepage": "https://github.com/NgTheLuan/unit-test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}
