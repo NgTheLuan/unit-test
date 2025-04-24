@@ -74,6 +74,6 @@ numberLinkedList.insertHead(1)
 numberLinkedList.insertHead(2)
 numberLinkedList.insertHead(3)
 
-numberLinkedList.removeTail()
+numberLinkedList.removeAtPosition(0)
 
 numberLinkedList.printList()
