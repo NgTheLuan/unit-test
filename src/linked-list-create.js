@@ -12,17 +12,6 @@ function createLinkedList() {
 		return head
 	}
 
-	function insertTail(newData) {
-		const newNode = { data: newData, next: null }
-		if (head == null) {
-			head = newNode
-		} else {
-			const tail = getTail()
-			tail.next = newNode
-		}
-		return head
-	}
-
 	function printList() {
 		if (head == null) return
 		let current = head
@@ -38,11 +27,11 @@ function createLinkedList() {
 
 	function getTail() {
 		if (head == null) return null
-		let current = head
-		while (current.next !== null) {
-			current = current.next
+		let tail = head
+		while (tail.next !== null) {
+			tail = tail.next
 		}
-		return current.data
+		return tail
 	}
 
 	function getSize() {
@@ -80,49 +69,26 @@ function createLinkedList() {
 		return undefined
 	}
 
-	function insertBeforePosition(newData, position) {
-		if (position <= 0 || head == null) {
-			insertHead(newData)
-			return head
-		}
-		let prev = head
-		let curr = head
-		let i = 0
-		while (curr != null && i < position) {
-			prev = curr
-			curr = curr.next
-			i++
-		}
-		// found node to insert
-		const newNode = { data: newData, next: curr }
-		prev.next = newNode
-		return head
-	}
-
 	return {
 		insertHead,
-		insertTail,
 		printList,
 		getHead,
 		getTail,
 		getSize,
 		findIndexByData,
 		findWithCallback,
-		insertBeforePosition,
 	}
 }
 
 const numberLinkedList = createLinkedList()
 
-numberLinkedList.insertTail(20)
 numberLinkedList.insertHead(1)
 numberLinkedList.insertHead(2)
 numberLinkedList.insertHead(3)
 numberLinkedList.insertHead(4)
 numberLinkedList.insertHead(5)
 
-numberLinkedList.insertBeforePosition(23, 4)
-numberLinkedList.printList() // 5 -> 4 -> 3 -> 2 -> 1
+numberLinkedList.printList()
 
 console.log('HEAD', numberLinkedList.getHead())
 console.log('TAIL', numberLinkedList.getTail())

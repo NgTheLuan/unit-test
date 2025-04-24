@@ -1,13 +1,24 @@
 function insertLinkedList() {
 	let head = null
 
+	function insertHead(newData) {
+		const newNode = { data: newData, next: null }
+		if (head == null) {
+			head = newNode
+		} else {
+			newNode.next = head
+			head = newNode
+		}
+		return head
+	}
+
 	function getTail() {
 		if (head == null) return null
-		let current = head
-		while (current.next !== null) {
-			current = current.next
+		let tail = head
+		while (tail.next !== null) {
+			tail = tail.next
 		}
-		return current.data
+		return tail
 	}
 
 	function insertTail(newData) {
@@ -40,13 +51,32 @@ function insertLinkedList() {
 		return head
 	}
 
+	function printList() {
+		if (head == null) return
+		let current = head
+		while (current != null) {
+			console.log(current.data)
+			current = current.next
+		}
+	}
+
 	return {
+		insertHead,
 		insertTail,
 		insertBeforePosition,
+		printList,
 	}
 }
 
 const numberLinkedList = insertLinkedList()
 
+numberLinkedList.insertHead(1)
+numberLinkedList.insertHead(2)
+numberLinkedList.insertHead(3)
+numberLinkedList.insertHead(4)
+numberLinkedList.insertHead(5)
+
 numberLinkedList.insertTail(20)
 numberLinkedList.insertBeforePosition(23, 4)
+
+numberLinkedList.printList()
