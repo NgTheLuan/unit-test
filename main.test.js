@@ -1,4 +1,6 @@
 import { checkIfAllEven, classifyStudent } from './main'
+
+/***************** Unit-test with Linked List *****************/
 describe('classifyStudent()', () => {
 	test('should return Invalid mark ! when n < 0', () => {
 		const value = classifyStudent(-1)
@@ -211,5 +213,41 @@ describe('every(isValidFn)', () => {
 		numberLinkedList.insertHead(5)
 		expect(numberLinkedList.every((x) => x % 5 === 0)).toBe(true)
 		expect(numberLinkedList.every((x) => x > 1)).toBe(true)
+	})
+})
+
+/***************** Unit-test with Stack *****************/
+describe('createStack()', () => {
+	it('all in one', () => {
+		const stack = createStack()
+		expect(stack.getSize()).toBe(0)
+		expect(stack.isEmpty()).toBe(true)
+		expect(stack.getTop()).tobeUndefined()
+
+		//push
+		stack.push(5)
+		expect(stack.getSize()).toBe(1)
+		expect(stack.isEmpty()).toBe(false)
+		expect(stack.getTop()).toBe(5)
+
+		//push
+		stack.push(10)
+		expect(stack.getSize()).toBe(2)
+		expect(stack.isEmpty()).toBe(false)
+		expect(stack.getTop()).toBe(10)
+
+		const value = stack.pop()
+
+		//pop
+		expect(value).toBe(10)
+		expect(stack.getSize()).toBe(1)
+		expect(stack.isEmpty()).toBe(false)
+		expect(stack.getTop()).toBe(5)
+
+		//pop
+		expect(value).toBe(5)
+		expect(stack.getSize()).toBe(0)
+		expect(stack.isEmpty()).toBe(true)
+		expect(stack.getTop()).tobeUndefined()
 	})
 })
